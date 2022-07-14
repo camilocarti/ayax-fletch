@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = new FormData();
+
+        data.append('a', 5);
+        data.append('b', 15);
+
+        fetch('servidor.php', {
+        method: 'POST',
+        body:data
+        })
+        .then(function(response){
+            if(response.ok){
+                return response.text();
+            } else{
+                throw "Error en la carga";
+            }
+           return response.text();
+        })
+        .then(function(texto){
+            console.log(texto);
+        });
+
+        
+    </script>
+</body>
+</html>
